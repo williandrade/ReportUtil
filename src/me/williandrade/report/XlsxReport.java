@@ -133,6 +133,10 @@ public class XlsxReport<T> extends BasicReport {
                     XSSFCell customCell = row.createCell(++cellCount);
                     customCell.setCellStyle(this.getCellStyle(wb, xmlSheet, choosedType != null ? choosedType : XlsxField.CellType.NUMBER));
                     customCell.setCellValue((Double) resultGetter);
+                } else if (resultGetter instanceof Long) {
+                    XSSFCell customCell = row.createCell(++cellCount);
+                    customCell.setCellStyle(this.getCellStyle(wb, xmlSheet, choosedType != null ? choosedType : XlsxField.CellType.NUMBER));
+                    customCell.setCellValue((Long) resultGetter);
                 } else if (resultGetter instanceof Float) {
                     XSSFCell customCell = row.createCell(++cellCount);
                     customCell.setCellStyle(this.getCellStyle(wb, xmlSheet, choosedType != null ? choosedType : XlsxField.CellType.NUMBER));
@@ -140,9 +144,9 @@ public class XlsxReport<T> extends BasicReport {
                 }
 
             }
-
+            i++;
         }
-        
+
         for (int columnI = 0; columnI <= totalOfColumns + 1; columnI++) {
             singleSheet.autoSizeColumn(columnI);
         }

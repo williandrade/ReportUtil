@@ -24,7 +24,8 @@ public class Test {
 
     public static void main(String[] args) throws Exception {
         List<TestDTO> testList = new ArrayList<>();
-        testList.add(new TestDTO("William", 22, "Rua João Bettega, 644", 1000.50));
+        testList.add(new TestDTO("William", 22, "Rua João Bettega, 644", 1000.50, 20000l));
+        testList.add(new TestDTO("William", 21, "Rua João Bettega, 644", 1000.50, 0l));
 
         /*
         Normal Way 
@@ -35,19 +36,19 @@ public class Test {
         Custom Header
         
          */
-//        XlsxReport xlsxReport = ReportUtil.toXlsx(testList);
-//
-//        CellStyle cellStyle = xlsxReport.getWorkbook().createCellStyle();
-//        XSSFFont font = xlsxReport.getWorkbook().createFont();
-//        font.setBold(true);
-//        cellStyle.setFont(font);
-//
-//        ByteArrayOutputStream byteArrayOutputStream = xlsxReport.setTitleCellStyle(cellStyle).generate();
-//
-//        File file = new File("/Users/william/Documents/texte/teste.xlsx");
-//        try (OutputStream outputStream = new FileOutputStream(file)) {
-//            byteArrayOutputStream.writeTo(outputStream);
-//        }
+        XlsxReport xlsxReport = ReportUtil.toXlsx(testList);
+
+        CellStyle cellStyle = xlsxReport.getWorkbook().createCellStyle();
+        XSSFFont font = xlsxReport.getWorkbook().createFont();
+        font.setBold(true);
+        cellStyle.setFont(font);
+
+        ByteArrayOutputStream byteArrayOutputStream = xlsxReport.setTitleCellStyle(cellStyle).generate();
+
+        File file = new File("/Users/william/Documents/texte/teste.xlsx");
+        try (OutputStream outputStream = new FileOutputStream(file)) {
+            byteArrayOutputStream.writeTo(outputStream);
+        }
     }
 
 }

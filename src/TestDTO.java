@@ -22,12 +22,15 @@ public class TestDTO {
     private String mainAddress;
     @XlsxField(title = "Salário", cellType = XlsxField.CellType.CURRENCY)
     private Double salary;
+    @XlsxField(title = "Altura")
+    private Long height;
 
-    public TestDTO(String name, int age, String mainAddress, Double salary) {
+    public TestDTO(String name, int age, String mainAddress, Double salary, Long height) {
         this.name = name;
         this.age = age;
         this.mainAddress = mainAddress;
         this.salary = salary;
+        this.height = height;
     }
 
     public String getName() {
@@ -60,6 +63,14 @@ public class TestDTO {
 
     public void setSalary(Double salary) {
         this.salary = salary;
+    }
+
+    public Long getHeight() {
+        return height;
+    }
+
+    public void setHeight(Long height) {
+        this.height = height;
     }
 
 }

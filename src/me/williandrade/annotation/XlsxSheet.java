@@ -18,7 +18,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface XlsxSheet {
 
-    String numberFormat() default "#";
+    String numberFormat() default "#0";
 
     String currencyFormat() default "R$#.##0_);(R$#.##0)";
 
